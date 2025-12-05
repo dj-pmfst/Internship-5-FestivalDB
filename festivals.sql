@@ -1,21 +1,30 @@
+CREATE TYPE Status AS ENUM ('planned', 'active', 'ended')
+CREATE TYPE Location AS ENUM ('beach', 'forest', 'main', 'tent')
+CREATE TYPE Genre AS ENUM ('pop', 'rock', 'metal', 'rap', 'country', 'hip-hop', 'jazz', 'electronic')
+CREATE TYPE TicketType AS ENUM ('basic', 'festival', 'camp', 'VIP')
+CREATE TYPE TicketIncluded AS ENUM ('none', 'backstage', 'camp')
+CREATE TYPE ValidFor AS ENUM ('one-day-only', 'entire-festival')
+CREATE TYPE Difficulty AS ENUM ('easy', 'average', 'advanced')
+
+
 CREATE TABLE Festivals (
 	festival_id SERIAL PRIMARY KEY,
 	name VARCHAR(100) NOT NULL,
 	city VARCHAR(100) NOT NULL,
 	max_capacitty INT NOT NULL,
-	start_date TIMESTAMP NOT NULL,
-	end_date TIMESTAMP NOT NULL,
+	start_date DATE NOT NULL,
+	end_date DATE NOT NULL,
 	status Status NOT NULL,
-	has_camp BOOLEAN NOT NULL,
-	stages INT REFERENCES Stages(stages),
-	artists INT REFERENCES Artists(artists)
+	has_camp BOOLEAN DEFAULT FALSE,
+	stages INT REFERENCES Stages(stage_id),
+	artists INT REFERENCES Artists(artist_id)
 )
 
 CREATE TABLE Stages(
 	stage_id SERIAL PRIMARY KEY,
 	name VARCHAR(100) NOT NULL,
 	max_capacity INT NOT NULL,
-	has_cover BOOLEAN NOT NULL,
+	has_cover BOOLEAN DEFAULT FALSE,
 	location Location NOT NULL,
 )
 
@@ -26,7 +35,7 @@ CREATE TABLE Artists(
 	country VARCHAR(100) NOT NULL,
 	genre Genre NOT NULL,
 	number_of_members INT DEFAULT 1,
-	status BOOLEAN NOT NULL,
+	status BOOLEAN DEFAULT TRUE,
 	festivals INT REFERENCES Festivals(festivals_id),
 	performances INT REFERENCES Peroformances(performances_id)
 )
@@ -45,12 +54,12 @@ CREATE TABLE Visitors(
 	visitor_id SERIAL PRIMARY KEY,
 	name VARCHAR(100) NOT NULL,
 	surname VARCHAR(100) NOT NULL,
-	dob TIMESTAMP NOT NULL,
-	city VARCHAR NOT NULL,
-	country VARCHAR NOT NULL,
+	dob DATE NOT NULL,
+	city VARCHAR(100) NOT NULL,
+	country VARCHAR(100) NOT NULL,
 	email VARCHAR NOT NULL,
 	ticket INT REFERENCES Tickets(ticket_id),
-	workshop INT REFERENCES !!!!!!!!!!!!!!!!!!!!
+	workshop INT REFERENCES WorkshopSignUp(signup_id)
 )
 
 CREATE TABLE Tickets(
@@ -65,9 +74,9 @@ CREATE TABLE Purchase(
 	purchase_id SERIAL PRIMARY KEY,
 	visitor INT REFERENCES Visitors(visitor_id),
 	festival INT REFERENCES Festivals(festival_id),
-	purchase_time TIMESTAMP NOT NULL,
+	purchase_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	total_cost DOUBLE NOT NULL,
-	ticket_type VARCHAR REFERENCES Tickets(type),
+	--ticket_type VARCHAR REFERENCES Tickets(type),
 	ticket_number INT DEFAULT 1,
 )
 
@@ -78,7 +87,14 @@ CREATE TABLE Workshops(
 	difficulty Difficulty NOT NULL,
 	max_capacity INT NOT NULL,
 	duration TIMESTAMP NOT NULL,
-	prior_experience BOOLEAN NOT NULL,
+	prior_experience BOOLEAN DEFAULT FALSE,
+)
+
+CREATE TABLE WorkshopSignUp(
+	signup_id SERIAL PRIMARY KEY,
+	status Status NOT NULL,
+	signup_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	workshop_id INTEGER NOT NULL REFERENCES Workshops(workshop_id)
 )
 
 CREATE TABLE Mentors(
@@ -86,8 +102,8 @@ CREATE TABLE Mentors(
 	name VARCHAR(100) NOT NULL,
 	surname VARCHAR(100) NOT NULL,
 	dob TIMESTAMP NOT NULL,
-	area VARCHAR NOT NULL,
-	experience TIMESTAMP NOT NULL,
+	area VARCHAR(100) NOT NULL,
+	experience INT NOT NULL,
 )
 
 CREATE TABLE Personnel(
@@ -95,9 +111,9 @@ CREATE TABLE Personnel(
 	name VARCHAR(100) NOT NULL,
 	surname VARCHAR(100) NOT NULL,
 	dob TIMESTAMP NOT NULL,
-	role VARCHAR NOT NULL,
+	role VARCHAR(50) NOT NULL,
 	contact INT,
-	safety_training BOOLEAN NOT NULL,
+	safety_training BOOLEAN NOT NULL DEFAULT FALSE,
 	festival INT REFERENCES Festivals(festival_id)
 )
 
@@ -105,13 +121,6 @@ CREATE TABLE Memberships(
 	membership_id SERIAL PRIMARY KEY,
 	visitor INT REFERENCES Visitors(visitor_id),
 	status Status NOT NULL,
-	activation_time TIMESTAMP NOT NULL,
+	activation_time DATE NOT NULL,
 )
 
-CREATE TYPE Status AS ENUM ('planned', 'active', 'ended')
-CREATE TYPE Location AS ENUM ('beach', 'forest', 'main')
-CREATE TYPE Genre AS ENUM ('pop', 'rock', 'metal', 'rap', 'country', 'hip-hop', 'jazz', 'electronic')
-CREATE TYPE TicketType AS ENUM ('basic', 'festival', 'camp', 'VIP')
-CREATE TYPE TicketIncluded AS ENUM ('none', 'backstage', 'camp')
-CREATE TYPE ValidFor AS ENUM ('one-day-only', 'entire-festival')
-CREATE TYPE Difficulty AS ENUM ('easy', 'average', 'advanced')
