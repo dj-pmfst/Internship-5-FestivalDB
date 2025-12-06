@@ -29,5 +29,9 @@ ALTER TABLE Visitors
 	CHECK (email LIKE '%_@_%._%' AND LENGTH(email) > 5);
 
 ALTER TABLE Workshops
-	ADD CONSTRAINT reasonable_duration
+	ADD CONSTRAINT ReasonableDuration
 	CHECK (duration >= 0.5 AND duration <= 24);  
+
+ALTER TABLE Visitors
+	ADD CONSTRAINT DobValid
+	CHECK (EXTRACT(YEAR FROM AGE(DOB)) <= 85);
