@@ -27,3 +27,7 @@ ALTER TABLE Mentors
 ALTER TABLE Visitors
 	ADD CONSTRAINT EmailValid
 	CHECK (email LIKE '%_@_%._%' AND LENGTH(email) > 5);
+
+ALTER TABLE Workshops
+	ADD CONSTRAINT reasonable_duration
+	CHECK (duration >= 0.5 AND duration <= 24);  

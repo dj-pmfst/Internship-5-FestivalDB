@@ -184,3 +184,28 @@ CREATE TRIGGER CheckStageVsFestival
     BEFORE INSERT OR UPDATE Performances
     FOR EACH ROW 
     EXECUTE FUNCTION StageVsFestivalCheck(); 
+
+
+CREATE OR REPLACE FUNCTION CheckPurchaseTotal()
+RETURNS TRIGGER AS $$
+DECLARE
+    calculated_total DECIMAL(10,2);
+BEGIN
+    SELECT COALESCE(SUM(quantity * price), 0)
+    INTO calculated_total
+    FROM PurchaseItem
+    WHERE purchase = NEW.purchase_id;
+    
+    IF calculated_total != NEW.total_cost THEN
+        RAISE EXCEPTION 'Trošak kupovine nije jednak sumi cijena', 
+            NEW.total_cost, calculated_total;
+    END IF;
+    
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER PurchaseTotalCheck
+    AFTER INSERT OR UPDATE ON Purchase
+    FOR EACH ROW
+    EXECUTE FUNCTION CheckPurchaseTotal();
