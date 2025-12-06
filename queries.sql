@@ -1,4 +1,13 @@
-SELECT * FROM Performances WHERE visitor_number >= 10000
+SELECT 
+	a.name AS artist,
+	s.name AS stage,
+	f.name AS festival,
+	p.start_time
+FROM performances p
+JOIN artists a ON p.artist = a.artist_id
+JOIN stages s ON p.stage = s.stage_id
+JOIN festivals f ON p.festival = f.festival_id
+WHERE visitor_number >= 10000;
 
 SELECT * FROM Festivals WHERE EXTRACT(YEAR FROM start_date) = 2025
 
