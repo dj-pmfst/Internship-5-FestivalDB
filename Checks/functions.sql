@@ -92,3 +92,27 @@ CREATE TRIGGER PerformanceOverlapCheck
     BEFORE INSERT OR UPDATE ON Performances
     FOR EACH ROW
     EXECUTE FUNCTION CheckPerformanceOverlap();
+
+
+CREATE OR REPLACE FUNCTION CheckWorkshopCapacity()
+RETURNS TRIGGER AS $$
+DECLARE
+    festival_capacity INTEGER;
+BEGIN
+    SELECT max_capacity 
+    INTO festival_capacity
+    FROM Festivals 
+    WHERE festival_id = NEW.festival;
+    
+    IF NEW.max_capacity > festival_capacity THEN
+        RAISE EXCEPTION 'Kapacitet radionice veći od kapaciteta festivala';
+    END IF;
+    
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER WorkshopCapacityCheck
+    BEFORE INSERT OR UPDATE ON Workshops
+    FOR EACH ROW
+    EXECUTE FUNCTION CheckWorkshopCapacity();

@@ -18,7 +18,7 @@ ALTER TABLE Personnel
 
 ALTER TABLE Workshops
 	ADD CONSTRAINT ExperienceRequirement
-	CHECK(difficulty = 'advanced' AND prior_experience = true)
+	CHECK(difficulty != 'advanced' OR prior_experience = true);
 
 ALTER TABLE Mentors
 	ADD CONSTRAINT ExperienceCheck
