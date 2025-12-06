@@ -23,3 +23,7 @@ ALTER TABLE Workshops
 ALTER TABLE Mentors
 	ADD CONSTRAINT ExperienceCheck
 	CHECK (experience <= EXTRACT(YEAR FROM AGE(dob)) - 18);
+
+ALTER TABLE Visitors
+	ADD CONSTRAINT EmailValid
+	CHECK (email LIKE '%_@_%._%' AND LENGTH(email) > 5);
