@@ -1,7 +1,7 @@
 CREATE OR REPLACE FUNCTION CheckMembershipEligibility()
 RETURNS TRIGGER AS $$
 DECLARE
-    festival_count INTEGER;
+    festival_count INT;
     total_spending DECIMAL(10,2);
 BEGIN
     SELECT 
@@ -97,7 +97,7 @@ CREATE TRIGGER PerformanceOverlapCheck
 CREATE OR REPLACE FUNCTION CheckWorkshopCapacity()
 RETURNS TRIGGER AS $$
 DECLARE
-    festival_capacity INTEGER;
+    festival_capacity INT;
 BEGIN
     SELECT max_capacity 
     INTO festival_capacity
@@ -116,3 +116,71 @@ CREATE TRIGGER WorkshopCapacityCheck
     BEFORE INSERT OR UPDATE ON Workshops
     FOR EACH ROW
     EXECUTE FUNCTION CheckWorkshopCapacity();
+
+CREATE OR REPLACE FUNCTION CheckPerformanceInFestival()
+RETURNS TRIGGER AS $$
+DECLARE
+    fest_start DATE;
+    fest_end DATE;
+BEGIN
+    SELECT start_date, end_date 
+    INTO fest_start, fest_end
+    FROM Festivals 
+    WHERE festival_id = NEW.festival;
+
+    IF DATE(NEW.start_time) < fest_start AND DATE(NEW.end_time) > fest_end
+        THEN RAISE EXCEPTION 'Nastup mora biti za vrijeme festivala.';
+    END IF;
+    
+    RETURN NEW;
+END;
+
+CREATE TRIGGER PerformanceInFestivalCheck
+    BEFORE INSERT OR UPDATE ON Performances
+    FOR EACH ROW
+    EXECUTE FUNCTION CheckPerformanceInFestival();
+
+CREATE OR REPLACE FUNCTION CheckVisitorStageCapacity()
+RETURNS TRIGGER AS $$
+DECLARE
+    stage_capacity INT;
+BEGIN 
+    SELECT max_capacity
+    INTO stage_capacity
+    FROM Stages
+    WHERE stage_id = NEW.stage;
+
+    IF NEW.visitor_number > stage_capacity THEN 
+        RAISE EXCEPTION 'Broj posjetitelja veći od kapaciteta.';
+    END IF;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql$$
+
+CREATE TRIGGER VisitorStageCapacityCheck
+    BEFORE INSERT OR UPDATE ON Performances
+    FOR EACH ROW 
+    EXECUTE FUNCTION CheckVisitorStageCapacity();
+
+
+CREATE OR REPLACE FUNCTION StageVsFestivalCheck()
+RETURN TRIGGER AS $$
+BEGIN
+    IF NOT EXISTS(
+        SELECT 1 
+        FROM Stages
+        WHERE stage_id = NEW.stage
+            AND festival_id = NEW.festival
+    ) THEN 
+        RAISE EXCEPTION 'Pozornica nije na ovom festvalu.'
+    END IF; 
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql$$
+
+CREATE TRIGGER CheckStageVsFestival
+    BEFORE INSERT OR UPDATE Performances
+    FOR EACH ROW 
+    EXECUTE FUNCTION StageVsFestivalCheck(); 
