@@ -1,8 +1,3 @@
--- ============================================
--- SAFE IMPORT FOR PGADMIN (No psql commands)
--- ============================================
-
--- Step 1: Disable all triggers
 ALTER TABLE Festivals DISABLE TRIGGER ALL;
 ALTER TABLE Performances DISABLE TRIGGER ALL;
 ALTER TABLE Mentors DISABLE TRIGGER ALL;
@@ -17,48 +12,36 @@ ALTER TABLE Purchase DISABLE TRIGGER ALL;
 ALTER TABLE PurchaseItem DISABLE TRIGGER ALL;
 ALTER TABLE WorkshopSignUp DISABLE TRIGGER ALL;
 
--- Step 2: You'll need to manually import each Mockaroo file here in pgAdmin
--- Open each file and execute it one by one:
--- 01_festivals.sql
--- 02_artists.sql
--- 03_visitors.sql
--- ... etc
+ALTER TABLE Festivals ALTER COLUMN end_date DROP NOT NULL;
+ALTER TABLE Performances ALTER COLUMN end_time DROP NOT NULL;
 
--- Step 3: After importing all files, run this cleanup section:
+---dodavanje mockaroo fileovea
 
--- Fix: Festivals with invalid dates
 DELETE FROM Festivals 
 WHERE end_date < start_date;
 
--- Fix: Performances with invalid times
 DELETE FROM Performances 
 WHERE end_time <= start_time;
 
--- Fix: Mentors under 18 or experience < 2
 DELETE FROM Mentors 
 WHERE EXTRACT(YEAR FROM AGE(dob)) < 18 
    OR experience < 2;
 
--- Fix: Mentors with experience > (age - 18)
 DELETE FROM Mentors 
 WHERE experience > EXTRACT(YEAR FROM AGE(dob)) - 18;
 
--- Fix: Security personnel under 21
 DELETE FROM Personnel 
 WHERE role = 'security' 
   AND DATE_PART('year', AGE(dob)) < 21;
 
--- Fix: Advanced workshops without prior_experience
 UPDATE Workshops 
 SET prior_experience = TRUE 
 WHERE difficulty = 'advanced' AND prior_experience = FALSE;
 
--- Fix: Invalid emails
 DELETE FROM Visitors 
 WHERE email NOT LIKE '%_@_%._%' 
    OR LENGTH(email) <= 5;
 
--- Fix: Overlapping performances
 DELETE FROM Performances p1
 WHERE EXISTS (
     SELECT 1 FROM Performances p2
@@ -72,7 +55,6 @@ WHERE EXISTS (
       )
 );
 
--- Fix: Personnel at overlapping festivals
 DELETE FROM Personnel p1
 WHERE EXISTS (
     SELECT 1 
@@ -85,7 +67,6 @@ WHERE EXISTS (
       AND (f1.start_date <= f2.end_date AND f1.end_date >= f2.start_date)
 );
 
--- Fix: Ineligible memberships
 DELETE FROM Memberships m
 WHERE NOT EXISTS (
     SELECT 1
@@ -102,7 +83,6 @@ WHERE NOT EXISTS (
       AND p.total_spent > 600
 );
 
--- Step 4: Re-enable all triggers
 ALTER TABLE Festivals ENABLE TRIGGER ALL;
 ALTER TABLE Performances ENABLE TRIGGER ALL;
 ALTER TABLE Mentors ENABLE TRIGGER ALL;
@@ -117,18 +97,16 @@ ALTER TABLE Purchase ENABLE TRIGGER ALL;
 ALTER TABLE PurchaseItem ENABLE TRIGGER ALL;
 ALTER TABLE WorkshopSignUp ENABLE TRIGGER ALL;
 
--- Step 5: Verify counts
-SELECT 'Festivals' as table_name, COUNT(*) as rows FROM Festivals
-UNION ALL SELECT 'Artists', COUNT(*) FROM Artists
-UNION ALL SELECT 'Visitors', COUNT(*) FROM Visitors
-UNION ALL SELECT 'Mentors', COUNT(*) FROM Mentors
-UNION ALL SELECT 'Stages', COUNT(*) FROM Stages
-UNION ALL SELECT 'Tickets', COUNT(*) FROM Tickets
-UNION ALL SELECT 'Performances', COUNT(*) FROM Performances
-UNION ALL SELECT 'Workshops', COUNT(*) FROM Workshops
-UNION ALL SELECT 'Purchase', COUNT(*) FROM Purchase
-UNION ALL SELECT 'PurchaseItem', COUNT(*) FROM PurchaseItem
-UNION ALL SELECT 'WorkshopSignUp', COUNT(*) FROM WorkshopSignUp
-UNION ALL SELECT 'Personnel', COUNT(*) FROM Personnel
-UNION ALL SELECT 'Memberships', COUNT(*) FROM Memberships
-ORDER BY table_name;
+
+SELECT COUNT(*) FROM Artists;
+SELECT COUNT(*) FROM Visitors;
+SELECT COUNT(*) FROM Mentors;
+SELECT COUNT(*) FROM Stages;
+SELECT COUNT(*) FROM Tickets;
+SELECT COUNT(*) FROM Performances;
+SELECT COUNT(*) FROM Workshops;
+SELECT COUNT(*) FROM Purchase;
+SELECT COUNT(*) FROM PurchaseItem;
+SELECT COUNT(*) FROM WorkshopSignUp;
+SELECT COUNT(*) FROM Personnel;
+SELECT COUNT(*) FROM Memberships;
