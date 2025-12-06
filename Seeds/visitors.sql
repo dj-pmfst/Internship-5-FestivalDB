@@ -4,7 +4,7 @@ insert into visitors (visitor_id, name, surname, dob, city, country, email) valu
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (4, 'Teena', 'Oldall', '2008-3-15', 'Fengjia', 'China', 'toldall3@lulu.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (5, 'Shayla', 'Stonier', '1994-4-13', 'Tumauini', 'Philippines', 'sstonier4@gmpg.org');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (6, 'Ferdie', 'Beenham', '1970-3-19', 'Ljungby', 'Sweden', 'fbeenham5@desdev.cn');
-insert into visitors (visitor_id, name, surname, dob, city, country, email) values (7, 'Arlyn', 'Vivien', '2007-7-27', 'Gvozd', 'Croatia', 'avivien6@unblog.fr');
+insert into visitors (visitor_id, name, surname, dob, city, country, email) values (7, 'Arlyn', 'Vivien', '2007-7-27', 'Split', 'Croatia', 'avivien6@unblog.fr');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (8, 'Lydie', 'Trodd', '11/4/2005', 'Victoria', 'Grenada', 'ltrodd7@scientificamerican.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (9, 'Chickie', 'Benting', '1992-12-21', 'Mantar', 'Indonesia', 'cbenting8@simplemachines.org');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (10, 'Crosby', 'Kenner', '12/6/1996', 'Pniv', 'Ukraine', 'ckenner9@google.fr');
@@ -35,7 +35,7 @@ insert into visitors (visitor_id, name, surname, dob, city, country, email) valu
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (35, 'Lamar', 'Pitcaithly', '11/4/1988', 'Petung', 'Indonesia', 'lpitcaithlyy@1und1.de');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (36, 'Olenolin', 'Swiffin', '1974-2-27', 'Kasukabe', 'Japan', 'oswiffinz@wikipedia.org');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (37, 'Andria', 'MacCrachen', '1972-7-10', 'Kurye', 'South Korea', 'amaccrachen10@woothemes.com');
-insert into visitors (visitor_id, name, surname, dob, city, country, email) values (38, 'Dehlia', 'Madgett', '1982-5-16', 'Bjelovar', 'Croatia', 'dmadgett11@hud.gov');
+insert into visitors (visitor_id, name, surname, dob, city, country, email) values (38, 'Dehlia', 'Madgett', '1982-5-16', 'Split', 'Croatia', 'dmadgett11@hud.gov');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (39, 'Misti', 'Growden', '2007-12-17', 'Gangnan', 'China', 'mgrowden12@paypal.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (40, 'Cari', 'Iowarch', '6/5/1992', 'Kajaani', 'Finland', 'ciowarch13@nbcnews.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (41, 'Paola', 'Rawsen', '4/1/1973', 'Krajan Curahcotok', 'Indonesia', 'prawsen14@altervista.org');
@@ -493,7 +493,7 @@ insert into visitors (visitor_id, name, surname, dob, city, country, email) valu
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (493, 'Gabie', 'Lugsdin', '1975-4-27', 'Corzuela', 'Argentina', 'glugsdindo@cpanel.net');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (494, 'Ricki', 'Bustard', '4/1/2010', 'Yaguarón', 'Paraguay', 'rbustarddp@t.co');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (495, 'Gibby', 'Cotter', '1983-4-18', 'Louriceira', 'Portugal', 'gcotterdq@bluehost.com');
-insert into visitors (visitor_id, name, surname, dob, city, country, email) values (496, 'Corena', 'Tukesby', '1972-8-16', 'Šibenik', 'Croatia', 'ctukesbydr@liveinternet.ru');
+insert into visitors (visitor_id, name, surname, dob, city, country, email) values (496, 'Corena', 'Tukesby', '1972-8-16', 'Split', 'Croatia', 'ctukesbydr@liveinternet.ru');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (497, 'Perl', 'Triplet', '2001-8-24', 'Meylan', 'France', 'ptripletds@merriam-webster.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (498, 'Carla', 'Scowen', '1966-12-24', 'Sida', 'Thailand', 'cscowendt@apache.org');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (499, 'Cyndy', 'Gallager', '1977-9-15', 'Cheonan', 'South Korea', 'cgallagerdu@freewebs.com');
@@ -788,7 +788,7 @@ insert into visitors (visitor_id, name, surname, dob, city, country, email) valu
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (788, 'Sebastiano', 'Timpany', '8/9/1976', 'Pictou', 'Canada', 'stimpanylv@geocities.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (789, 'Mahmud', 'Mattimoe', '1973-6-16', 'Zhaxirabdain', 'China', 'mmattimoelw@free.fr');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (790, 'Devi', 'Knellen', '2002-2-20', 'Zagazig', 'Egypt', 'dknellenlx@moonfruit.com');
-insert into visitors (visitor_id, name, surname, dob, city, country, email) values (791, 'Stephen', 'McInility', '2004-11-11', 'Viškovci', 'Croatia', 'smcinilityly@php.net');
+insert into visitors (visitor_id, name, surname, dob, city, country, email) values (791, 'Stephen', 'McInility', '2004-11-11', 'Split', 'Croatia', 'smcinilityly@php.net');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (792, 'Petra', 'Putterill', '1987-6-23', 'Cherryville', 'Ireland', 'pputterilllz@behance.net');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (793, 'Cooper', 'Duesbury', '2006-3-12', 'Harbour Breton', 'Canada', 'cduesburym0@amazon.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (794, 'Terrell', 'Mussington', '1992-5-11', 'Minsk', 'Belarus', 'tmussingtonm1@woothemes.com');
@@ -867,10 +867,10 @@ insert into visitors (visitor_id, name, surname, dob, city, country, email) valu
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (867, 'Hillary', 'Barreau', '1980-7-13', 'Kuala Lumpur', 'Malaysia', 'hbarreauo2@goo.gl');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (868, 'Adriane', 'Goldberg', '2/8/1987', 'General Emilio Aguinaldo', 'Philippines', 'agoldbergo3@bandcamp.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (869, 'Ninette', 'Bufton', '8/9/1976', 'Skhira', 'Tunisia', 'nbuftono4@dion.ne.jp');
-insert into visitors (visitor_id, name, surname, dob, city, country, email) values (870, 'Meggy', 'Ballister', '1972-6-24', 'Pandan', 'Philippines', 'mballistero5@nymag.com');
+insert into visitors (visitor_id, name, surname, dob, city, country, email) values (870, 'Meggy', 'Ballister', '1972-6-24', 'Pandan', 'Philippines', 'mballistero5@gmail.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (871, 'Welby', 'Millam', '12/2/1996', 'Tocumen', 'Panama', 'wmillamo6@cmu.edu');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (872, 'Brett', 'Nuzzi', '1991-7-30', 'Bulqizë', 'Albania', 'bnuzzio7@umich.edu');
-insert into visitors (visitor_id, name, surname, dob, city, country, email) values (873, 'Wood', 'Burchnall', '12/8/1980', 'Buenavista', 'Philippines', 'wburchnallo8@furl.net');
+insert into visitors (visitor_id, name, surname, dob, city, country, email) values (873, 'Wood', 'Burchnall', '12/8/1980', 'Buenavista', 'Philippines', 'wburchnallo8@gmail.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (874, 'Lina', 'MacDermand', '2/5/2003', 'Kamenka', 'Russia', 'lmacdermando9@timesonline.co.uk');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (875, 'Alfonso', 'Coldbreath', '1993-3-19', 'Changuillo', 'Peru', 'acoldbreathoa@gnu.org');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (876, 'Gizela', 'De Filippo', '4/8/1990', 'Xiangrong', 'China', 'gdefilippoob@vistaprint.com');
@@ -932,7 +932,7 @@ insert into visitors (visitor_id, name, surname, dob, city, country, email) valu
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (932, 'Tanner', 'Hazelhurst', '2007-4-12', 'Staryy Saltiv', 'Ukraine', 'thazelhurstpv@hud.gov');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (933, 'Elspeth', 'Whitelock', '2010-6-22', 'Świecie nad Osą', 'Poland', 'ewhitelockpw@wunderground.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (934, 'Mia', 'Liven', '5/6/1975', 'Lichengdao', 'China', 'mlivenpx@geocities.com');
-insert into visitors (visitor_id, name, surname, dob, city, country, email) values (935, 'Alica', 'Waddam', '1973-4-19', 'Pagatan', 'Indonesia', 'awaddampy@telegraph.co.uk');
+insert into visitors (visitor_id, name, surname, dob, city, country, email) values (935, 'Alica', 'Waddam', '1973-4-19', 'Pagatan', 'Indonesia', 'awaddampy@gmail.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (936, 'Chad', 'Balazs', '1965-1-10', 'Altay sumu', 'Mongolia', 'cbalazspz@umich.edu');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (937, 'Gerik', 'Witcher', '1970-1-25', 'Haljala', 'Estonia', 'gwitcherq0@plala.or.jp');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (938, 'Remington', 'Girtin', '2005-3-29', 'Kowo', 'Indonesia', 'rgirtinq1@go.com');
@@ -943,7 +943,7 @@ insert into visitors (visitor_id, name, surname, dob, city, country, email) valu
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (943, 'Elroy', 'Sybe', '2000-8-19', 'Quiaios', 'Portugal', 'esybeq6@ebay.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (944, 'Charmain', 'Gredden', '4/4/1981', 'Kardhiq', 'Albania', 'cgreddenq7@wunderground.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (945, 'Norrie', 'Rowntree', '2010-2-13', 'Tiling', 'Philippines', 'nrowntreeq8@utexas.edu');
-insert into visitors (visitor_id, name, surname, dob, city, country, email) values (946, 'Hoyt', 'Menpes', '10/5/1998', 'La Estancia', 'Honduras', 'hmenpesq9@cbslocal.com');
+insert into visitors (visitor_id, name, surname, dob, city, country, email) values (946, 'Hoyt', 'Menpes', '10/5/1998', 'La Estancia', 'Honduras', 'hmenpesq9@gmail.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (947, 'Ana', 'Whawell', '1/3/1986', 'Kuala Lumpur', 'Malaysia', 'awhawellqa@globo.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (948, 'Laryssa', 'Carty', '2001-8-13', 'Ridder', 'Kazakhstan', 'lcartyqb@cpanel.net');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (949, 'Lorraine', 'Geaveny', '1990-10-31', 'Daqian', 'China', 'lgeavenyqc@hud.gov');
@@ -980,7 +980,7 @@ insert into visitors (visitor_id, name, surname, dob, city, country, email) valu
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (980, 'Ericha', 'Mollett', '6/2/2002', 'Baler Baleagung', 'Indonesia', 'emollettr7@msn.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (981, 'Ange', 'Doggrell', '1993-5-12', 'Annapolis', 'United States', 'adoggrellr8@phoca.cz');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (982, 'Angy', 'Stigell', '1984-1-29', 'Olbramovice', 'Czech Republic', 'astigellr9@jalbum.net');
-insert into visitors (visitor_id, name, surname, dob, city, country, email) values (983, 'Lamar', 'Temprell', '4/7/2003', 'Lab', 'China', 'ltemprellra@ucoz.ru');
+insert into visitors (visitor_id, name, surname, dob, city, country, email) values (983, 'Lamar', 'Temprell', '4/7/2003', 'Lab', 'China', 'ltemprellra@gmail.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (984, 'Vick', 'Royston', '1966-5-26', 'Xunqiao', 'China', 'vroystonrb@booking.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (985, 'Myrvyn', 'Danbi', '1996-3-27', 'Veshnyaki', 'Russia', 'mdanbirc@epa.gov');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (986, 'Tracie', 'Goss', '1/5/1999', 'Jukui', 'China', 'tgossrd@arizona.edu');
@@ -991,10 +991,10 @@ insert into visitors (visitor_id, name, surname, dob, city, country, email) valu
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (991, 'Nickie', 'Chesters', '2002-11-30', 'Cikadu', 'Indonesia', 'nchestersri@storify.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (992, 'Truda', 'Unworth', '8/7/2007', 'Yelwa', 'Nigeria', 'tunworthrj@biglobe.ne.jp');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (993, 'Stanleigh', 'Prudham', '1995-2-10', 'Mairinque', 'Brazil', 'sprudhamrk@businesswire.com');
-insert into visitors (visitor_id, name, surname, dob, city, country, email) values (994, 'Doloritas', 'Franies', '1983-9-17', 'Danxia', 'China', 'dfraniesrl@altervista.org');
-insert into visitors (visitor_id, name, surname, dob, city, country, email) values (995, 'Claiborn', 'Sharman', '2000-3-31', 'Thívai', 'Greece', 'csharmanrm@trellian.com');
+insert into visitors (visitor_id, name, surname, dob, city, country, email) values (994, 'Doloritas', 'Franies', '1983-9-17', 'Danxia', 'China', 'dfraniesrl@gmail.com');
+insert into visitors (visitor_id, name, surname, dob, city, country, email) values (995, 'Claiborn', 'Sharman', '2000-3-31', 'Split', 'Croatia', 'csharmanrm@gmail.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (996, 'Dunc', 'Innott', '1983-10-29', 'San Alejandro', 'Philippines', 'dinnottrn@pinterest.com');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (997, 'Tim', 'Churchyard', '1987-3-25', 'Karuri', 'Kenya', 'tchurchyardro@networkadvertising.org');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (998, 'Cathrine', 'Groomebridge', '2/1/1971', 'Akim Swedru', 'Ghana', 'cgroomebridgerp@state.gov');
-insert into visitors (visitor_id, name, surname, dob, city, country, email) values (999, 'Garfield', 'Peirone', '1985-9-24', 'Kašina', 'Croatia', 'gpeironerq@fda.gov');
+insert into visitors (visitor_id, name, surname, dob, city, country, email) values (999, 'Garfield', 'Peirone', '1985-9-24', 'Split', 'Croatia', 'gpeironerq@fda.gov');
 insert into visitors (visitor_id, name, surname, dob, city, country, email) values (1000, 'Bartie', 'Buie', '6/7/1966', 'Ampahana', 'Madagascar', 'bbuierr@unc.edu');
